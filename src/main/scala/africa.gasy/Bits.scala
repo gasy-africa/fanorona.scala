@@ -35,7 +35,7 @@ object Bits {
   // BINARY Annotation
   // 5 rows (numbers) 9 columns (letters)
   // C(capt) W(White) x, numbers(Empty)
-  //                             CWxxxxxxxxxxxx5abcdefghi4abcdefghi3abcdefghi2abcdefghi1abcdefghi
+  // CWxxxxxxxxxxxx5abcdefghi4abcdefghi3abcdefghi2abcdefghi1abcdefghi
   val INITIAL_BOT: Long = BigInt(
     "0000000000000000000000000000000000001010010101111111110111111111",
     2).toLong
@@ -83,25 +83,23 @@ object Bits {
   def lastBit(bitboard: Long): Long = bitboard & -bitboard
 
   def fill64(bin: String): String =
-    String.format("%0" + (64 - bin.length) + "d%s", 0, bin.reverse)
+    String.format("%0" + (64 - bin.length) + "d%s", 0, bin)
 
   def display(bin: String): List[String] = {
     val fillBin = fill64(bin)
     val control: List[String] =
       fillBin.take(4) ::
-        fillBin.slice(15, 24) ::
-        fillBin.slice(25, 34) ::
-        fillBin.slice(35, 44) ::
-        fillBin.slice(45, 54) ::
         fillBin.slice(55, 64) ::
+        fillBin.slice(45, 54) ::
+        fillBin.slice(35, 44) ::
+        fillBin.slice(25, 34) ::
+        fillBin.slice(15, 24) ::
         Nil
 
-    println("|`~`     |a| b| c| d| e| f| g| h| i|")
-    println("|--------|-|--|--|--|--|--|--|--|--|")
+    println("|`~`     |a | b| c| d| e| f| g| h|i|")
+    println("|--------|--|--|--|--|--|--|--|--|-|")
 
-    val a = Seq(1, 2, 3, 4, 5)
-    val b = Seq(5, 4, 3, 2, 1)
-    for ((i, j) <- a.zip(b)) {
+    for ((i, j) <- (1 to 5).zip((5 to 1 by -1))) {
       val row =
         String.format("|%7s %-25s",
                       displayEmoji(j),
@@ -116,6 +114,7 @@ object Bits {
     row.toString
       .map(x => if (x == ',' || x == '(' || x == ')') pipe else x)
       .replace("List", "")
+      .reverse
   }
 
   def displayEmoji(number: Int): String = {
