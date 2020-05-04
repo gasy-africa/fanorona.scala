@@ -1,4 +1,4 @@
-package africa.gasy
+package africa.gasy.fanorona.board
 
 import org.scalatest._
 
