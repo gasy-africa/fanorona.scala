@@ -49,4 +49,52 @@ object Move {
                    set = set)
     }
   }
+
+  // find next move in sequence by pulling bits out of set
+  def nextElement(ingressMoveSetIndex: Int,
+                  ingressSet: Long,
+                  shift: Int,
+                  capture: Capture,
+                  storedFrom: Long,
+                  storedTo: Long,
+                  opponentPieces: Long): (Long, Long) = {
+    if (ingressSet == 0)
+      findNextSet(ingressMoveSetIndex,
+                  storedFrom = storedFrom,
+                  storedTo = storedTo,
+                  opponentPieces) // make sure we have a move to generate
+    // TODO imperative code
+    var bit = Bits.lastBit(ingressSet)
+    val set = ingressSet ^ bit
+    capture match {
+      case Capture.FORWARD =>
+        // TODO imperative code
+        var retval = bit | (bit << shift)
+        bit <<= 2 * shift
+        while ({
+          (bit & opponentPieces) != 0
+        }) {
+          retval |= bit
+          bit <<= shift
+        }
+        (set, retval)
+      case Capture.BACKWARD =>
+        // TODO imperative code
+        var retval1 = bit | (bit << shift)
+        bit >>>= shift
+        while ({
+          (bit & opponentPieces) != 0
+        }) {
+          retval1 |= bit
+          bit >>>= shift
+        }
+        (set, retval1)
+      case Capture.NO =>
+        (set, bit | (bit << shift))
+      case Capture.PASS =>
+        (set, 0)
+      case Capture.NO_MORE_MOVES =>
+        (set, -1L)
+    }
+  }
 }
