@@ -2,13 +2,13 @@
 Gasy Fanorona Scala
 
 
-# Issues while migrating
+# :x: Issues while migrating
 
-## :x: Binary Literals
+#### :round_pushpin: Binary Literals
 
 https://contributors.scala-lang.org/t/pre-sip-support-binary-integer-literals/3559/6
 
-## :x: Continuations (i.e Coroutine)
+#### :round_pushpin: Continuations (i.e Coroutine)
 
 https://stackoverflow.com/questions/715758/coroutine-vs-continuation-vs-generator
 
