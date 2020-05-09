@@ -10,7 +10,9 @@ object Move {
   def findNextSet(ingressMoveSetIndex: Int = 0,
                   storedFrom: Long,
                   storedTo: Long,
-                  opponentPieces: Long): ElementSet = {
+                  opponentPieces: Long,
+                  es: ElementSet = ElementSet()
+                 ): ElementSet = {
 
     val from = storedFrom
     val to = storedTo
@@ -41,12 +43,14 @@ object Move {
           return findNextSet(moveSetIndex + 1,
                              storedFrom,
                              storedTo,
-                             opponentPieces)
+                             opponentPieces, es)
         ElementSet(moveSetIndex + 1,
                    shift,
                    captureType,
                    madeCapture = true,
                    set = set)
+      case _ =>
+        es
     }
   }
 
