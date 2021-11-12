@@ -2,12 +2,12 @@ package africa.gasy.fanorona.generator
 
 import africa.gasy.fanorona.board.{Bits, Board, Capture, ElementSet}
 import org.scalatest._
+import flatspec._
+import matchers._
 
-class MoveSpec extends FlatSpec {
+class MoveSpec extends AnyFlatSpec with should.Matchers {
 
-  behavior of "A Move Generator"
-
-  it should "find next set" in {
+  "A Move Generator" should "find next set" in {
     val board: Board = Board()
 
     // scalastyle:off

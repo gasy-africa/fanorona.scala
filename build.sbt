@@ -1,24 +1,14 @@
-organization := "africa.gasy"
+val scala3Version = "3.1.0"
 
-name := "gasy-fanorona-scala"
-
-description := "Gasy Fanorona"
-
-version := "1.0-SNAPSHOT"
-
-lazy val root = project in file(".")
-
-scalaVersion := "2.13.2"
-
-libraryDependencies += "org.scalatest" %% "scalatest" % "3.1.1" % Test
-
-scalacOptions ++= Seq(
-    "-unchecked"
-  , "-deprecation"
-  , "-feature"
-  , "-language:postfixOps"
-  , "-language:reflectiveCalls"
-)
-
-
-
+lazy val root = project
+  .in(file("."))
+  .settings(
+    name := "gasy-fanorona-scala",
+    organization := "africa.gasy",
+    description := "Gasy Fanorona",
+    version := "0.1.0-SNAPSHOT",
+    scalaVersion := scala3Version,
+    libraryDependencies ++= Seq(
+      "org.scalatest" %% "scalatest" % "3.2.10" % Test
+    )
+  )

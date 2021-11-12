@@ -1,1 +1,0 @@
-scalafmtOnCompile in Compile := true
