@@ -1,6 +1,8 @@
 # gasy-fanorona-scala
 Gasy Fanorona Scala
 
+# :x: This project has been archived see [:point_finger: Fanorona](https://github.com/gasy-africa/fanorona)
+
 ### Usage
 
 This is a normal sbt project. You can compile code with `sbt compile`, run it with `sbt run`, and `sbt console` will start a Scala 3 REPL.
