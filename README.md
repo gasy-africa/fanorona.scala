@@ -1,7 +1,7 @@
 # gasy-fanorona-scala
 Gasy Fanorona Scala
 
-# :x: This project has been archived see [:point_finger: Fanorona](https://github.com/gasy-africa/fanorona)
+# :x: This project has been archived see [:point_right: Fanorona](https://github.com/gasy-africa/fanorona)
 
 ### Usage
 
