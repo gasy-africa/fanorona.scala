@@ -19,3 +19,4 @@ https://stackoverflow.com/questions/21880107/scala-switch-which-continue-matchin
 
 https://github.com/scala/scala-continuations/issues/37
 
+https://www.researchgate.net/publication/23751565_Best_Play_in_Fanorona_Leads_to_Draw
